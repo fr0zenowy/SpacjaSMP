@@ -1,0 +1,115 @@
+Modules:
+  shop:
+    enabled: true
+
+  sell:
+    enabled: true
+
+# ─── Gospodarka sklepu ──────────────────────────────────────────────────────
+# Cena z /asklep to baza. Kazde 250$ SPRZEDAZY danego itemu = -0.01$.
+# Kupno nie rusza ceny. Reszta (np. 100$ + 150$) sie sumuje. Po bezczynnosci wraca do bazy.
+shop-market:
+  enabled: true
+  drop-per-money: 250
+  drop-amount: 0.01
+  min-price: 0.01
+  busy-min-price: 0.10
+  busy-unique-sellers: 5
+  busy-window-minutes: 60
+  max-percent: 130
+  idle-minutes: 45
+  recover-percent-per-minute: 3
+
+# Osobisty limit: jak gracz zarobi z JEDNEGO itemu (slotu sprzedazy) >= 1000,
+# tylko jemu cena tego itemu spada o 40% na 2-4 godziny (losowo).
+shop-flood:
+  enabled: true
+  threshold: 1000
+  discount-percent: 40
+  min-hours: 2
+  max-hours: 4
+
+# ─── AntiCheat ──────────────────────────────────────────────────────────────
+anticheat:
+  enabled: true
+  # Anticheat ZAWSZE tylko alertuje — nic nie blokuje (setback/kick wylaczone w kodzie).
+  alerts-only: true
+  kick:
+    # dziala tylko gdy alerts-only: false
+    enabled: false
+    # laczny VL, po ktorym gracz wylatuje (VL maleje w czasie)
+    vl: 60
+  # ile VL znika co 10 sekund
+  vl-decay-per-10s: 2.0
+  # minimalny odstep miedzy alertami tego samego checka dla tego samego gracza
+  alert-cooldown-ms: 1500
+  # checki do wylaczenia, np. [AutoClicker, FastPlace]
+  disabled-checks: []
+
+# ─── Anti-Xray ──────────────────────────────────────────────────────────────
+# Anti-xray robi Paper (config/paper-world-defaults.yml). Przy starcie plugin
+# sprawdza ten plik i jesli anti-xray jest wylaczony, wlacza go (engine-mode 2,
+# jak na DonutSMP). Po zmianie trzeba zrestartowac serwer.
+antixray:
+  auto-configure-paper: true
+
+# ─── Antylogout ─────────────────────────────────────────────────────────────
+combat-tag:
+  duration-seconds: 30
+  # Perła nabija tag dopiero przy wylądowaniu (teleporcie), nie przy rzucie.
+  # Riptide na tridentcie tylko w walce.
+  riptide-cooldown-seconds: 20
+
+# ─── Limity itemów ──────────────────────────────────────────────────────────
+# Totemy i perły: max w ekwipunku (offhand, shulkery, bundle, kursor).
+# Nadmiaru nie da się podnieść z ziemi, skrzynki ani innego GUI.
+item-limits:
+  totem-max: 3
+  pearl-max: 8
+
+# Perły są całkowicie wyłączone (kasowane z EQ, ziemi i rzutów).
+# Cooldown / pullarka zostają na wypadek gdyby perły wróciły.
+pearl-cooldown-seconds: 10
+pearl-water-despawn-seconds: 5
+
+# Po śmierci: tyle sekund bez straty serca i bez oddawania serca zabójcy.
+lifesteal:
+  spawn-protection-seconds: 180
+
+# Odliczanie przed teleportem /home (komenda i klik w GUI).
+home-cooldown-seconds: 5
+
+# W Netherze ancient debris (netherite) znika z chunków i nie da się go wykopać.
+# W skrzyniach (bastiony itd.) nie spawni sie scrap, ingot, szablon ani gear.
+netherite:
+  strip-nether: true
+  strip-chests: true
+
+# true = tylko OP / zamrozenie.nether. false = kazdy moze wejsc.
+nether-access:
+  lock-players: false
+
+# ─── Bossy MythicMobs (/zrespbossa) ─────────────────────────────────────────
+# Na razie pełny event (scoreboard + drop z /adrop) jest tylko dla HollowKing.
+bosses:
+  hollowknight:
+    mythic-id: HollowKing
+    display-name: "Władca lochów"
+    appeared-text: "pojawił się w lochach"
+    wake-title: "WŁADCA LOCHÓW"
+    wake-subtitle: "BUDZI SIĘ ZE SNU"
+    bossbar-entry: "wejście do lochów"
+    drop-source: wladca_lochow
+    drop-pool-size: 5
+    health: 3000
+    # Start: czerwone szkło w kratach u góry.
+    # Śmierć bossa: szkło wraca, iron bary znikają i wracają po restore-seconds.
+    arena:
+      world: world
+      restore-seconds: 600
+      glass:
+        from: [1512, -50, -946]
+        to: [1512, -45, -942]
+      bars:
+        from: [1518, -48, -927]
+        to: [1516, -50, -926]

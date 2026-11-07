@@ -1,0 +1,122 @@
+name: Zamrozenie
+version: '1.0'
+main: pl.zamrozenie.ZamrozeniePlugin
+api-version: '1.21'
+author: fr0zenowy
+
+softdepend: [PlaceholderAPI, MythicMobs]
+
+commands:
+  zamrozenie:
+    description: Glowna komenda pluginu Zamrozenie
+  home:
+    description: Teleportacja do domu
+  tpa:
+    description: Prosba o teleportacje
+  tpaccept:
+    description: Akceptuj prosbe o teleportacje
+  tpadeny:
+    description: Odrzuc prosbe o teleportacje
+  wysrodkuj:
+    description: Wysrodkuj blok
+  lifesteal:
+    description: Zarzadzaj sercami lifesteal
+  wyplacserce:
+    description: Wyplac serce
+  zrzut:
+    description: Status zrzutu (godzina i czy aktywny)
+  adminzrzut:
+    description: Admin komendy zrzutu
+  adminzrzuttest:
+    description: Test zrzutu
+  adminzrzutotworz:
+    description: Otworz zrzut
+  aktywujsmoka:
+    description: Aktywuj event smoka kresu
+  smok:
+    description: GUI informacji o smoku
+  dragongive:
+    description: Daj item smoka
+  klan:
+    description: System klanow
+  shop:
+    description: GUI sklepu
+    aliases: [sklep]
+  asklep:
+    description: Edycja sklepu (kupno / sprzedaz)
+    permission: zamrozenie.asklep
+  drop:
+    description: GUI dropu z bossow
+  tutorial:
+    description: Poradnik serwera
+    aliases: [poradnik]
+  adrop:
+    description: Edycja dropu bossa
+    permission: zamrozenie.adrop
+  rynek:
+    description: GUI rynku graczy
+  wystaw:
+    description: Wystaw przedmiot z reki na rynek
+  wardensword:
+    description: Daj Warden Sword
+    permission: zamrozenie.wardensword
+  kataklizm:
+    description: Daj Kataklizm Pustki
+    permission: zamrozenie.kataklizm
+    aliases: [voidbow, kataklizmpustki]
+  kilof3x3:
+    description: Daj Kilof Otchłani 3x3
+    permission: zamrozenie.kilof3x3
+    aliases: [netherpick, kilofotchlani]
+  odlamekkilofa:
+    description: Daj Odłamek Kilofa
+    permission: zamrozenie.kilof3x3
+    aliases: [odlamek, pickshard]
+  topki:
+    description: Topki siana, zabojstw i smierci
+    aliases: [topka, topsy]
+  ac:
+    description: Zamrozenie AntiCheat (alerty, VL)
+    permission: zamrozenie.ac
+    aliases: [anticheat, zac]
+  zrespbossa:
+    description: Zresp bossa MythicMobs
+    permission: zamrozenie.zrespbossa
+    aliases: [zrespboss]
+  kepicgowno:
+    description: kepic gowno
+
+permissions:
+  zamrozenie.wardensword:
+    description: Pozwala dac Warden Sword
+    default: op
+  zamrozenie.kataklizm:
+    description: Pozwala dac Kataklizm Pustki
+    default: op
+  zamrozenie.kilof3x3:
+    description: Pozwala dac Kilof Otchłani
+    default: op
+  zamrozenie.adrop:
+    description: Pozwala edytowac drop bossow przez /adrop
+    default: op
+  zamrozenie.asklep:
+    description: Pozwala edytowac sklep przez /asklep
+    default: op
+  zamrozenie.ac:
+    description: Dostep do komendy /ac
+    default: op
+  zamrozenie.ac.alerts:
+    description: Otrzymuje alerty anticheata
+    default: op
+  zamrozenie.ac.bypass:
+    description: Omija wszystkie checki anticheata
+    default: false
+  zamrozenie.zrespbossa:
+    description: Pozwala zrespic bossa przez /zrespbossa
+    default: op
+  zamrozenie.nether:
+    description: Pozwala wchodzic do Netheru gdy jest zablokowany dla graczy
+    default: op
+  zamrozenie.seeplugins:
+    description: Pozwala uzywac /plugins /pl /ver
+    default: op

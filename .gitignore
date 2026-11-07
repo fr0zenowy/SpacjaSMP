@@ -1,0 +1,7 @@
+﻿target/
+*.class
+*.jar
+__pycache__/
+tools/media/_cache/
+.idea/
+*.iml
