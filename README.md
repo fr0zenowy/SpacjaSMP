@@ -1,4 +1,4 @@
-# Zamrożenie: lifesteal, bossy i legendarne przedmioty na serwer Minecraft
+# SpacjaSMP
 
 To mój plugin na serwer SMP z PvP (Paper 1.21.11). Ma lifesteal, 12 przedmiotów z własnymi umiejętnościami (miecz, który ładuje się przy trafieniach i strzela falą dźwiękową, łuk robiący czarną dziurę, kilof niszczący 3×3), codzienny zrzut ze skrzynią, event Smoka Kresu, bossa z MythicMobs, sklep z cenami, które reagują na sprzedaż, rynek graczy, klany i własnego anticheata.
 
